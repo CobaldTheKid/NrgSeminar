@@ -324,12 +324,6 @@ Poročilo opisuje:
 - omejitve
 - zaključke
 
-## Licenca
+## Obvestilo bralcu
 
-Dodajte ustrezno licenco, na primer:
-
-- MIT
-- BSD
-- CC BY (za poročilo, če je potrebno)
-
-Če so vključene ali prilagojene tretje knjižnice oziroma datoteke, naj bodo njihove izvorne licence ustrezno ohranjene in navedene.
+Po več tednih intense dela na projektu sem zadnji dan malo pregorel, tako da je readme file bil prepuščen v roke LLM, če slučajno kaj ne štima ali ni logičo, je verjetno to razlog. V tem primeru z veseljem stvari poskušam razložiti na zagovoru na predavanjih :)
