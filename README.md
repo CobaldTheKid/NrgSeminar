@@ -20,7 +20,7 @@ repo/
   tools/
     blender/
     alignment/
-  report/
+  report.pdf
 ```
 
 ### `package/`
@@ -69,7 +69,7 @@ Te skripte se uporabljajo za:
 
 ### `report/`
 
-Seminarsko poročilo v LaTeX obliki.
+Seminarsko poročilo v pdf obliki.
 
 ## Glavni cevovod
 
