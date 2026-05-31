@@ -1,14 +1,14 @@
-# Hybrid Mesh-Gaussian Splat Rendering in Unity
+﻿# Hibridni prikaz mesh-Gaussian splat modelov v Unityju
 
-This project presents a practical pipeline for preparing, aligning, and rendering hybrid 3D objects composed of a mesh model and a Gaussian splat representation. The main goal is to support real-time LOD-style switching in Unity:
+Ta projekt predstavlja praktičen cevovod za pripravo, poravnavo in prikaz hibridnih 3D objektov, sestavljenih iz mrežnega modela in Gaussian splat predstavitve. Glavni cilj je podpreti realnočasovno LOD-preklapljanje v Unityju:
 
-- near view: Gaussian splat rendering
-- far view: simplified mesh rendering
-- transition zone: smooth blend between both representations
+- bližnji pogled: prikaz Gaussian splat modela
+- oddaljeni pogled: prikaz poenostavljenega mesh modela
+- prehodno območje: gladek prehod med obema predstavitvama
 
-The repository contains the Unity project, the modified Gaussian splat package, Blender tools for synthetic multi-view rendering, Python scripts for mesh-splat alignment, and the seminar report.
+Repozitorij vsebuje Unity projekt, prilagojen Gaussian splat package, Blender orodja za sintetični večpogledni zajem, Python skripte za poravnavo mesh-splat modelov ter seminarsko poročilo.
 
-## Repository Structure
+## Struktura repozitorija
 
 ```text
 repo/
@@ -25,311 +25,311 @@ repo/
 
 ### `package/`
 
-Modified Unity Gaussian splatting package used for splat rendering in Unity.
+Prilagojen Unity Gaussian splatting package za prikaz splat modelov v Unityju.
 
-This folder contains the package-level changes needed for:
+Ta mapa vsebuje spremembe na nivoju package-a, potrebne za:
 
-- splat opacity control
-- runtime blending support
-- modified shaders / renderer scripts used by the project
+- nadzor prosojnosti splat modela
+- podporo za runtime blending
+- prilagojene shaderje in renderer skripte, uporabljene v projektu
 
 ### `projects/GaussianExample-URP/`
 
-Main Unity URP demo project.
+Glavni Unity URP demo projekt.
 
-This folder contains:
+Ta mapa vsebuje:
 
-- scenes
-- materials
-- custom scripts
-- custom shaders
-- alignment data examples
-- the hybrid object setup used for testing and evaluation
+- scene
+- materiale
+- lastne skripte
+- lastne shaderje
+- primere alignment podatkov
+- postavitve hibridnih objektov za testiranje in evalvacijo
 
 ### `tools/blender/`
 
-Blender scripts for synthetic data generation.
+Blender skripte za sintetično generiranje vhodnih podatkov.
 
-These scripts are used to:
+Te skripte se uporabljajo za:
 
-- place cameras around an object
-- render multi-view images
-- generate synthetic image sets for Meshroom or Gaussian Splatting training
+- postavitev kamer okoli objekta
+- izris večpoglednih slik
+- pripravo sintetičnih vhodnih slik za Meshroom ali Gaussian Splatting training
 
 ### `tools/alignment/`
 
-Python scripts for semi-automatic alignment between mesh and splat models.
+Python skripte za polavtomatsko poravnavo mesh in splat modelov.
 
-These scripts are used to:
+Te skripte se uporabljajo za:
 
-- load sampled mesh points
-- load Gaussian centers from `.ply`
-- compute alignment transform
-- export the result as JSON for Unity
+- nalaganje vzorčenih točk mesh modela
+- nalaganje centrov Gaussianov iz `.ply`
+- izračun transformacije poravnave
+- izvoz rezultata v JSON za Unity
 
 ### `report/`
 
-Seminar report written in LaTeX.
+Seminarsko poročilo v LaTeX obliki.
 
-## Main Pipeline
+## Glavni cevovod
 
-The full workflow is:
+Celoten workflow poteka po naslednjih korakih:
 
-1. Acquire input data
-   - real photographs
-   - or synthetic Blender renders
-2. Reconstruct Gaussian splat model
-   - train a Gaussian splat representation
-   - export `.ply`
-3. Reconstruct mesh model
-   - use Meshroom photogrammetry
-   - or model manually in Blender for simple objects
-4. Import both models into Unity
-5. Align mesh and splat models
-   - export mesh surface samples from Unity
-   - run Python alignment script
-   - apply alignment JSON in Unity
-6. Enable hybrid rendering
+1. Zajem vhodnih podatkov
+   - realne fotografije
+   - ali sintetični Blender renderji
+2. Rekonstrukcija Gaussian splat modela
+   - učenje Gaussian splat predstavitve
+   - izvoz `.ply`
+3. Rekonstrukcija mesh modela
+   - uporaba Meshroom fotogrametrije
+   - ali ročno modeliranje v Blenderju pri preprostih objektih
+4. Uvoz obeh modelov v Unity
+5. Poravnava mesh in splat modela
+   - izvoz vzorčnih točk mesh modela iz Unityja
+   - zagon Python alignment skripte
+   - uporaba alignment JSON zapisa v Unityju
+6. Aktivacija hibridnega prikaza
    - hard switch
    - dither crossfade
    - transparent crossfade
 
-## Dependencies
+## Odvisnosti
 
-This project relies on the following external tools:
+Projekt uporablja naslednja zunanja orodja:
 
-- Unity (URP project)
+- Unity (URP projekt)
 - UnityGaussianSplatting
 - Blender
 - Meshroom
 - COLMAP
-- Gaussian Splatting training code
+- Gaussian Splatting training kodo
 - Python 3.10+
 - `numpy`
 - `open3d`
 - `plyfile`
 
-Depending on the training setup, you may also need:
+Glede na training setup boste morda potrebovali še:
 
-- PyTorch with CUDA
-- additional Gaussian Splatting dependencies
+- PyTorch s CUDA podporo
+- dodatne Gaussian Splatting odvisnosti
 
-## Unity Project
+## Unity projekt
 
-Open the Unity project located in:
+Unity projekt se nahaja v:
 
 ```text
 projects/GaussianExample-URP/
 ```
 
-### Main Unity components
+### Glavne Unity komponente
 
-The Unity project contains several important systems:
+Unity projekt vsebuje več pomembnih sistemov:
 
-#### Alignment tools
+#### Orodja za poravnavo
 
-- mesh point export from Unity
-- alignment JSON import and application
+- izvoz točk mesh modela iz Unityja
+- uvoz in uporaba alignment JSON zapisa
 
-#### LOD / blending scripts
+#### LOD / blending skripte
 
 - `V1`: hard switch
 - `V2`: dither crossfade
 - `V3`: transparent crossfade
 
-#### Custom shader
+#### Lasten shader
 
-- dither fade mesh shader used by the V2 transition
+- dither fade mesh shader, uporabljen pri V2 prehodu
 
-## Synthetic Data Generation in Blender
+## Sintetični zajem v Blenderju
 
-Blender scripts are located in:
+Blender skripte se nahajajo v:
 
 ```text
 tools/blender/
 ```
 
-### Typical workflow
+### Tipičen workflow
 
-1. Import or open the object in Blender
-2. Run the camera rig script
-3. Verify the camera placement
-4. Run the render script
-5. Use the rendered images as input for:
+1. Odpri ali uvozi objekt v Blender
+2. Zaženi skripto za postavitev kamer
+3. Preveri postavitev kamer
+4. Zaženi skripto za izris pogledov
+5. Uporabi izrisane slike kot vhod za:
    - Meshroom
    - Gaussian Splatting training
 
-## Mesh-Splat Alignment
+## Poravnava mesh-splat modelov
 
-Alignment tools are located in:
+Alignment orodja se nahajajo v:
 
 ```text
 tools/alignment/
 ```
 
-### Step 1: Export mesh sample points from Unity
+### 1. korak: izvoz vzorčnih točk mesh modela iz Unityja
 
-In Unity, use the editor export tool to generate:
+V Unityju uporabi urejevalniško orodje za izvoz:
 
 - `*.meshpoints.json`
 
-This file contains sampled mesh surface points.
+Ta datoteka vsebuje vzorčene površinske točke mesh modela.
 
-### Step 2: Run Python alignment
+### 2. korak: zagon Python alignment skripte
 
-Example command:
+Primer ukaza:
 
 ```cmd
 python compute_alignment.py --mesh-points path\to\MyMesh.meshpoints.json --ply path\to\model.ply --output path\to\alignment_transform.json
 ```
 
-### Step 3: Apply transform in Unity
+### 3. korak: uporaba transformacije v Unityju
 
-Assign the generated alignment JSON to the Unity alignment component and apply it to the mesh root object.
+Nastavi ustvarjeni alignment JSON v Unity komponenti za poravnavo in ga uporabi na korenskem objektu mesh modela.
 
-### Notes
+### Opombe
 
-- alignment is semi-automatic
-- the automatic result usually provides a good coarse alignment
-- small manual corrections may still be required
+- poravnava je polavtomatska
+- samodejni rezultat običajno zagotovi dobro grobo poravnavo
+- manjši ročni popravki so lahko še vedno potrebni
 
-## Gaussian Splatting Training
+## Gaussian Splatting training
 
-Training is not run directly inside Unity.
+Training se ne izvaja neposredno v Unityju.
 
-Typical external workflow:
+Tipičen zunanji workflow:
 
-1. Prepare images
-2. Run COLMAP / conversion step
-3. Train Gaussian splat model
-4. Export `.ply`
-5. Import `.ply` into Unity
+1. Pripravi slike
+2. Zaženi COLMAP oziroma pretvorbo vhodnih podatkov
+3. Natreniraj Gaussian splat model
+4. Izvozi `.ply`
+5. Uvozi `.ply` v Unity
 
-If checkpoints are enabled during training, training can be resumed later.
+Če so med trainingom omogočeni checkpointi, lahko training kasneje nadaljuješ.
 
-## Rendering Modes
+## Načini prikaza
 
-The project supports three rendering strategies:
+Projekt podpira tri strategije prikaza:
 
 ### V1: Hard Switch
 
-A simple distance-based switch between:
+Enostaven preklop na podlagi razdalje med:
 
-- splat model
-- mesh model
+- splat modelom
+- mesh modelom
 
 ### V2: Dither Crossfade
 
-Uses:
+Uporablja:
 
-- custom dither shader on the mesh
-- runtime opacity fade on the splat
+- lasten dither shader na mesh modelu
+- runtime fade prosojnosti splat modela
 
-Advantages:
+Prednosti:
 
-- better depth behavior
-- avoids typical transparent mesh artifacts
+- bolj pravilno globinsko obnašanje
+- manj tipičnih transparentnih artefaktov mesh modela
 
-Disadvantages:
+Slabosti:
 
-- visible dither pattern on some objects
+- pri nekaterih objektih je dither vzorec viden
 
 ### V3: Transparent Crossfade
 
-Uses:
+Uporablja:
 
-- transparent URP/Lit mesh material
-- runtime splat fade
+- transparenten URP/Lit mesh material
+- runtime fade splat modela
 
-Advantages:
+Prednosti:
 
-- visually softer transition
+- mehkejši vizualni prehod
 
-Disadvantages:
+Slabosti:
 
-- may show rear mesh surfaces through the front during fade
+- med fade prehodom se lahko zadnji deli mesh modela vidijo skozi sprednje ploskve
 
-## Typical Use Cases
+## Tipični primeri uporabe
 
-This repository was tested on several representative objects:
+Repozitorij smo testirali na več reprezentativnih objektih:
 
 - Book
 - Laptop
 - Log
 
-Observed behavior:
+Opaženo obnašanje:
 
-- `Book`: dither is more visible, transparent blending can show depth artifacts
-- `Laptop`: dither works especially well due to richer texture
-- `Log`: both methods work well; transparent blending is visually strongest when mesh and splat match closely
+- `Book`: dither je bolj viden, transparentni prehod lahko pokaže globinske artefakte
+- `Laptop`: dither deluje posebej dobro zaradi bogatejše teksture
+- `Log`: obe metodi delujeta dobro; transparentni prehod je vizualno najbolj prepričljiv, kadar se mesh in splat zelo dobro ujemata
 
-## How to Reproduce the Hybrid Setup
+## Kako ponoviti hibridni setup
 
-### Minimal Unity workflow
+### Minimalen Unity workflow
 
-1. Open `projects/GaussianExample-URP/`
-2. Import / assign:
+1. Odpri `projects/GaussianExample-URP/`
+2. Uvozi ali nastavi:
    - mesh model
    - splat model
-3. Export mesh point samples
-4. Run alignment script
-5. Apply alignment JSON
-6. Choose transition mode:
+3. Izvozi vzorčne točke mesh modela
+4. Zaženi alignment skripto
+5. Uporabi alignment JSON
+6. Izberi način prehoda:
    - hard switch
    - dither
    - transparent
-7. Adjust near / transition / far distances
+7. Nastavi meje za bližnji, prehodni in oddaljeni pogled
 
-### Minimal Blender workflow
+### Minimalen Blender workflow
 
-1. Open object in Blender
-2. Generate camera rig
-3. Render views
-4. Use outputs for:
+1. Odpri objekt v Blenderju
+2. Ustvari camera rig
+3. Izriši poglede
+4. Uporabi slike za:
    - Meshroom
    - Gaussian training
 
-## Notes on Artifacts
+## Opombe o artefaktih
 
-Two main artifacts were observed:
+Opazili smo dve glavni vrsti artefaktov:
 
-### Dither transition
+### Dither prehod
 
-- may show a visible stippled pattern
-- can be reduced by:
-  - shortening the transition range
-  - moving the transition farther from the camera
+- lahko pokaže viden pikčast oziroma diskreten vzorec
+- zmanjša se ga lahko z:
+  - krajšim prehodnim območjem
+  - premikom prehoda dlje od kamere
 
-### Transparent transition
+### Transparentni prehod
 
-- may show rear mesh surfaces through front surfaces
-- can be reduced by:
-  - shortening the transition range
-  - using the transparent transition farther from the camera
+- lahko pokaže zadnje dele mesh modela skozi sprednje ploskve
+- zmanjša se ga lahko z:
+  - krajšim prehodnim območjem
+  - uporabo transparentnega prehoda pri večji oddaljenosti kamere
 
-## Report
+## Poročilo
 
-The seminar report is included in:
+Seminarsko poročilo je vključeno v:
 
 ```text
 report/
 ```
 
-It describes:
+Poročilo opisuje:
 
-- motivation
-- pipeline
-- implementation
-- evaluation
-- limitations
-- conclusions
+- motivacijo
+- cevovod
+- implementacijo
+- evalvacijo
+- omejitve
+- zaključke
 
-## License
+## Licenca
 
-Choose and place the final license file here, for example:
+Dodajte ustrezno licenco, na primer:
 
 - MIT
 - BSD
-- CC BY (for report content, if required)
+- CC BY (za poročilo, če je potrebno)
 
-If third-party code is included or modified, make sure the original license is preserved and clearly referenced.
+Če so vključene ali prilagojene tretje knjižnice oziroma datoteke, naj bodo njihove izvorne licence ustrezno ohranjene in navedene.
