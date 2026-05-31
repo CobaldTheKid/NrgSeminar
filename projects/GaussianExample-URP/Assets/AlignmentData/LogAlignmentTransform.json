@@ -1,0 +1,36 @@
+{
+  "translation": [
+    0.5282557413091831,
+    -0.36846456462692595,
+    0.18823561625997687
+  ],
+  "rotation_matrix": [
+    [
+      -0.8901996498849839,
+      0.3791574071910533,
+      0.2525554274150825
+    ],
+    [
+      -0.19351553067386706,
+      0.1871611563069916,
+      -0.9630796649072486
+    ],
+    [
+      -0.4124273544912709,
+      -0.9062065780725688,
+      -0.0932379489550485
+    ]
+  ],
+  "rotation_quaternion": [
+    0.06300226734625296,
+    0.7366476014939253,
+    -0.6343895775907247,
+    0.2256787304261091
+  ],
+  "scale": 0.3892460345687484,
+  "source_mesh_points_file": "D:\\UnityGaussianSplatting-kopija\\UnityGaussianSplatting-main\\projects\\GaussianExample-URP\\Assets\\AlignmentData\\LogMesh.meshpoints.json",
+  "source_ply_file": "D:\\UnityGaussianSplatting-kopija\\UnityGaussianSplatting-main\\projects\\GaussianExample-URP\\Assets\\GaussianAssets\\log.ply",
+  "fitness": 0.99815,
+  "rmse": 0.02613411866596351,
+  "created_utc": "2026-05-30T22:24:59.576632+00:00"
+}

@@ -1,0 +1,36 @@
+{
+  "translation": [
+    -0.19964709240171014,
+    -0.6122312938768508,
+    -0.5455377515024658
+  ],
+  "rotation_matrix": [
+    [
+      0.9887928653196827,
+      -0.12727304788730673,
+      -0.07803999471024547
+    ],
+    [
+      -0.08719125023136637,
+      -0.0679841071032594,
+      -0.9938691297472064
+    ],
+    [
+      0.1211872739853131,
+      0.9895351092623524,
+      -0.07831929622488126
+    ]
+  ],
+  "rotation_quaternion": [
+    0.7305984308510082,
+    -0.07338651749801256,
+    0.014764362149261552,
+    0.678691657159482
+  ],
+  "scale": 82.83869645375688,
+  "source_mesh_points_file": "D:\\UnityGaussianSplatting-kopija\\UnityGaussianSplatting-main\\projects\\GaussianExample-URP\\Assets\\AlignmentData\\laptopAlignment.json",
+  "source_ply_file": "D:\\UnityGaussianSplatting-kopija\\UnityGaussianSplatting-main\\projects\\GaussianExample-URP\\Assets\\GaussianAssets\\laptopTrimmed.ply",
+  "fitness": 0.9943,
+  "rmse": 0.0950283607676142,
+  "created_utc": "2026-05-30T12:43:36.867981+00:00"
+}

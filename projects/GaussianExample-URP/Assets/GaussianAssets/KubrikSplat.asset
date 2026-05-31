@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33b71fae31e6c7d438e8566dc713e666, type: 3}
+  m_Name: KubrikSplat
+  m_EditorClassIdentifier: GaussianSplatting::GaussianSplatting.Runtime.GaussianSplatAsset
+  m_FormatVersion: 20231020
+  m_SplatCount: 32562
+  m_BoundsMin: {x: -0.9165885, y: -2.709073, z: 0.2790796}
+  m_BoundsMax: {x: 0.8893725, y: -0.24593492, z: 1.1741258}
+  m_DataHash:
+    serializedVersion: 2
+    Hash: 02660c956a9006ca8a6368c083f38f13
+  m_PosFormat: 2
+  m_ScaleFormat: 2
+  m_SHFormat: 3
+  m_ColorFormat: 2
+  m_PosData: {fileID: 4900000, guid: 8e141ad6bb5bdc6418468e1178c0411b, type: 3}
+  m_ColorData: {fileID: 4900000, guid: 16c012f2c941b534cabc00a755ef6f37, type: 3}
+  m_OtherData: {fileID: 4900000, guid: 13fc23912f42e7f4ea2f23418e83c576, type: 3}
+  m_SHData: {fileID: 4900000, guid: 171f0527f949f7f4083ec0c7596900b6, type: 3}
+  m_ChunkData: {fileID: 4900000, guid: 2350f7f6f4ffbf443bb785ae0330ddbb, type: 3}
+  m_Cameras: []

@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33b71fae31e6c7d438e8566dc713e666, type: 3}
+  m_Name: laptopTrimmed
+  m_EditorClassIdentifier: GaussianSplatting::GaussianSplatting.Runtime.GaussianSplatAsset
+  m_FormatVersion: 20231020
+  m_SplatCount: 160418
+  m_BoundsMin: {x: -1.4480095, y: -2.4315305, z: -2.001396}
+  m_BoundsMax: {x: 1.1777499, y: -0.3059371, z: 1.1784544}
+  m_DataHash:
+    serializedVersion: 2
+    Hash: 438335d72293c2a01a2299bb510e5b0d
+  m_PosFormat: 2
+  m_ScaleFormat: 2
+  m_SHFormat: 3
+  m_ColorFormat: 2
+  m_PosData: {fileID: 4900000, guid: 9f0e2446be31d084d9e67705c4043e03, type: 3}
+  m_ColorData: {fileID: 4900000, guid: f893c29d8741f1b49b6402e395377fee, type: 3}
+  m_OtherData: {fileID: 4900000, guid: 059c051e960749b45bd9f12e990820b9, type: 3}
+  m_SHData: {fileID: 4900000, guid: 2ef463cbd7fd73344a625a4e9b69b284, type: 3}
+  m_ChunkData: {fileID: 4900000, guid: 72abfa4f7dccdb64e9bda0cac73ab235, type: 3}
+  m_Cameras: []
